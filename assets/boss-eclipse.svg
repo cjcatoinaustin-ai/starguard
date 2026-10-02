@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360">
+ <defs>
+  <radialGradient id="halo"><stop stop-color="#fff3a5"/><stop offset=".28" stop-color="#ffb769"/><stop offset=".65" stop-color="#e74a75"/><stop offset="1" stop-color="#8b2459"/></radialGradient>
+  <radialGradient id="void"><stop stop-color="#0d1736"/><stop offset=".65" stop-color="#160c2e"/><stop offset="1" stop-color="#3a173f"/></radialGradient>
+  <linearGradient id="claw"><stop stop-color="#772350"/><stop offset=".5" stop-color="#2a173e"/><stop offset="1" stop-color="#f17b77"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <g stroke-linejoin="round">
+  <ellipse cx="300" cy="180" rx="202" ry="139" fill="#0b0c29" stroke="url(#halo)" stroke-width="17" filter="url(#glow)"/>
+  <ellipse cx="300" cy="180" rx="175" ry="112" fill="none" stroke="#ffcb83" stroke-width="5" stroke-dasharray="30 16"/>
+  <path d="M116 92 67 65 93 129 24 151 96 178 36 231 112 228 158 270 192 227 162 158Z M484 92 533 65 507 129 576 151 504 178 564 231 488 228 442 270 408 227 438 158Z" fill="url(#claw)" stroke="#ff9b77" stroke-width="8"/>
+  <path d="M168 85 222 53 260 100 300 68 340 100 378 53 432 85 409 158 443 210 384 256 333 238 300 285 267 238 216 256 157 210 191 158Z" fill="#15112f" stroke="#ffb371" stroke-width="8"/>
+  <ellipse cx="300" cy="172" rx="91" ry="87" fill="url(#halo)" stroke="#ffe5a0" stroke-width="7" filter="url(#glow)"/>
+  <ellipse cx="300" cy="170" rx="73" ry="69" fill="url(#void)" stroke="#ffca80" stroke-width="5"/>
+  <path d="M248 157 274 144 290 158 272 170Z M352 157 326 144 310 158 328 170Z" fill="#ffedb0" stroke="#fff5be" stroke-width="4" filter="url(#glow)"/>
+  <path d="M270 203 300 226 330 203 310 217 300 210 290 217Z" fill="#ffb36d" stroke="#ffe0a5" stroke-width="4"/>
+  <path d="m164 210-67 82 99-37 43-52m197 7 67 82-99-37-43-52" fill="#31183c" stroke="#ff8e78" stroke-width="8"/>
+  <path d="M238 235 253 303 282 270M362 235 347 303 318 270" fill="#d14d70" stroke="#ffb676" stroke-width="6"/>
+  <circle cx="300" cy="35" r="9" fill="#ffe7a4" filter="url(#glow)"/><circle cx="300" cy="325" r="9" fill="#ffe7a4" filter="url(#glow)"/>
+ </g>
+</svg>

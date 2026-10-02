@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360">
+ <defs>
+  <linearGradient id="hull" x2="0" y2="1"><stop stop-color="#a93c9c"/><stop offset=".42" stop-color="#351448"/><stop offset="1" stop-color="#100c2c"/></linearGradient>
+  <linearGradient id="wing"><stop stop-color="#fb6eb6"/><stop offset=".4" stop-color="#742371"/><stop offset="1" stop-color="#251039"/></linearGradient>
+  <radialGradient id="core"><stop stop-color="#fffbd0"/><stop offset=".25" stop-color="#ffb874"/><stop offset=".65" stop-color="#ff3ca9"/><stop offset="1" stop-color="#7d1958"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <g stroke-linejoin="round">
+  <path d="M286 130 177 72 29 92 104 120 15 174 103 176 63 225 161 202 214 238 300 218 386 238 439 202 537 225 497 176 585 174 496 120 571 92 423 72 314 130Z" fill="#0b0d2a" stroke="#ff5cb6" stroke-width="10" filter="url(#glow)"/>
+  <path d="M278 135 172 83 43 98 133 136 27 168 130 169 78 212 166 188 229 218 294 205Z" fill="url(#wing)" stroke="#ffa8cf" stroke-width="5"/>
+  <path d="M322 135 428 83 557 98 467 136 573 168 470 169 522 212 434 188 371 218 306 205Z" fill="url(#wing)" stroke="#ffa8cf" stroke-width="5"/>
+  <path d="M200 148 148 99 72 104 173 158 81 171 171 174 107 204 206 181" fill="none" stroke="#ffb179" stroke-width="7"/>
+  <path d="M400 148 452 99 528 104 427 158 519 171 429 174 493 204 394 181" fill="none" stroke="#ffb179" stroke-width="7"/>
+  <path d="M206 128 253 95 300 105 347 95 394 128 380 216 340 253 260 253 220 216Z" fill="url(#hull)" stroke="#ff70c3" stroke-width="8"/>
+  <path d="M248 123 300 142 352 123 337 181 300 205 263 181Z" fill="#130d30" stroke="#ffb2d6" stroke-width="5"/>
+  <path d="M279 154 300 139 321 154 318 182 300 197 282 182Z" fill="url(#core)" stroke="#fff1c0" stroke-width="5" filter="url(#glow)"/>
+  <path d="M229 216 259 258 250 310 228 291 216 243ZM371 216 341 258 350 310 372 291 384 243Z" fill="#23123b" stroke="#ff6db7" stroke-width="7"/>
+  <path d="M247 258 230 296M353 258 370 296" stroke="#ffb367" stroke-width="8" filter="url(#glow)"/>
+  <path d="M300 208 282 242 300 281 318 242Z" fill="#f243a8" stroke="#ffd195" stroke-width="5"/>
+  <path d="M267 113 300 94 333 113M222 177l-26 11M378 177l26 11" fill="none" stroke="#8af4ff" stroke-width="5"/>
+ </g>
+</svg>

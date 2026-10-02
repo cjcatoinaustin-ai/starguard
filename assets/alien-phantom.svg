@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 140">
+ <defs>
+  <linearGradient id="cloak" x2="0" y2="1"><stop stop-color="#b5a0ff"/><stop offset=".35" stop-color="#5c3ca3"/><stop offset="1" stop-color="#10143c"/></linearGradient>
+  <radialGradient id="mask"><stop stop-color="#faffff"/><stop offset=".32" stop-color="#9fe9ff"/><stop offset=".65" stop-color="#9d83ff"/><stop offset="1" stop-color="#352066"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="4" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <g stroke-linejoin="round" stroke-linecap="round">
+  <path d="M48 45 20 15 24 63 7 78 35 91 22 122 61 106 90 131 119 106 158 122 145 91 173 78 156 63 160 15 132 45 90 18Z" fill="#17113e" stroke="#ae8cff" stroke-width="3"/>
+  <path d="M45 44 90 22 135 44 151 77 132 103 90 118 48 103 29 77Z" fill="url(#cloak)" stroke="#c5a2ff" stroke-width="2.5"/>
+  <path d="M52 49 90 31 128 49 139 76 120 96 90 106 60 96 41 76Z" fill="#251b61" stroke="#9a7af5" stroke-width="2"/>
+  <path d="M59 55 90 42 121 55 119 84 90 99 61 84Z" fill="url(#mask)" stroke="#d6c8ff" stroke-width="2.5" filter="url(#glow)"/>
+  <path d="M64 67 83 63 79 74 63 75 M116 67 97 63 101 74 117 75" fill="#241844" stroke="#f3edff" stroke-width="2"/>
+  <path d="M80 84 90 89 100 84 96 94 84 94Z" fill="#513081"/>
+  <path d="M39 60 14 76 38 82 M141 60l25 16-24 6 M50 95l-21 21 31-12 M130 95l21 21-31-12" fill="none" stroke="#87dfff" stroke-width="2.5"/>
+  <path d="M25 22 50 50 M155 22l-25 28" fill="none" stroke="#d2a9ff" stroke-width="4" filter="url(#glow)"/>
+  <path d="M84 29h12 M52 84l13 12 M128 84l-13 12" fill="none" stroke="#c3f5ff" stroke-width="2"/>
+  <circle cx="90" cy="56" r="3" fill="#fff" filter="url(#glow)"/>
+ </g>
+</svg>

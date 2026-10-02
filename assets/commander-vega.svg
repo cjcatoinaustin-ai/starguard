@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" shape-rendering="crispEdges">
+  <defs>
+    <linearGradient id="sky" x2="1" y2="1"><stop stop-color="#161742"/><stop offset="1" stop-color="#07192c"/></linearGradient>
+    <linearGradient id="visor" x2="0" y2="1"><stop stop-color="#8befff"/><stop offset="1" stop-color="#164e87"/></linearGradient>
+  </defs>
+  <rect width="128" height="128" fill="#050a1b"/>
+  <rect x="5" y="5" width="118" height="118" fill="url(#sky)" stroke="#4fe2f4" stroke-width="4"/>
+  <path d="M8 92h112v28H8z" fill="#0c1630"/>
+  <path d="M20 118V96l24-14h40l24 14v22z" fill="#253d61" stroke="#49b5ce" stroke-width="3"/>
+  <path d="M47 80h34v20H47z" fill="#ba735f"/>
+  <path d="M42 37h44v42L72 91H54L42 77z" fill="#e6a184"/>
+  <path d="M42 57h44v10H42z" fill="#bf7967" opacity=".45"/>
+  <path d="M38 48V27l16-13h27l15 12v20l-10-8H45z" fill="#b6c6cf"/>
+  <path d="M42 28l12-11h27l11 11z" fill="#dce9e4"/>
+  <rect x="37" y="37" width="54" height="23" fill="#0d2b54" stroke="#62dded" stroke-width="3"/>
+  <rect x="41" y="41" width="46" height="15" fill="url(#visor)"/>
+  <path d="M43 47h40" stroke="#c7fcff" stroke-width="2"/>
+  <rect x="39" y="67" width="8" height="14" fill="#e6a184"/>
+  <rect x="82" y="67" width="8" height="14" fill="#e6a184"/>
+  <path d="M55 73h18v3H55z" fill="#7f3d48"/>
+  <path d="M49 90l15 14 15-14 10 7-25 25-25-25z" fill="#334e72"/>
+  <path d="M60 103h8v19h-8z" fill="#52d7e7"/>
+  <path d="M18 107h16m60 0h16" stroke="#ff4c9a" stroke-width="4"/>
+  <path d="M8 8h13M8 8v13m99-13h13m0 0v13M8 107v13h13m99-13v13h-13" stroke="#ff579e" stroke-width="3" fill="none"/>
+</svg>

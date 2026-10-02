@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+ <defs>
+  <linearGradient id="blade" x2="0" y2="1"><stop stop-color="#ffef9c"/><stop offset=".5" stop-color="#f38432"/><stop offset="1" stop-color="#773067"/></linearGradient>
+  <radialGradient id="core"><stop stop-color="#fff"/><stop offset=".28" stop-color="#ffe685"/><stop offset=".65" stop-color="#f56e3d"/><stop offset="1" stop-color="#562256"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <g stroke-linejoin="round" stroke-linecap="round">
+  <g fill="url(#blade)" stroke="#ffd590" stroke-width="2.5">
+   <path d="M69 48 60 9 74 18 84 5 82 48Z"/><path d="M69 48 60 9 74 18 84 5 82 48Z" transform="rotate(45 75 75)"/>
+   <path d="M69 48 60 9 74 18 84 5 82 48Z" transform="rotate(90 75 75)"/><path d="M69 48 60 9 74 18 84 5 82 48Z" transform="rotate(135 75 75)"/>
+   <path d="M69 48 60 9 74 18 84 5 82 48Z" transform="rotate(180 75 75)"/><path d="M69 48 60 9 74 18 84 5 82 48Z" transform="rotate(225 75 75)"/>
+   <path d="M69 48 60 9 74 18 84 5 82 48Z" transform="rotate(270 75 75)"/><path d="M69 48 60 9 74 18 84 5 82 48Z" transform="rotate(315 75 75)"/>
+  </g>
+  <circle cx="75" cy="75" r="31" fill="#221d43" stroke="#ffb978" stroke-width="4"/>
+  <circle cx="75" cy="75" r="24" fill="url(#core)" stroke="#ffe2a1" stroke-width="3" filter="url(#glow)"/>
+  <path d="M75 54 94 75 75 96 56 75Z" fill="#371e51" stroke="#fff2ba" stroke-width="2"/>
+  <path d="M75 62 88 75 75 88 62 75Z" fill="#ffbf64" filter="url(#glow)"/>
+  <circle cx="75" cy="75" r="5" fill="#fff"/>
+  <g fill="#8cfbff"><circle cx="75" cy="43" r="3"/><circle cx="107" cy="75" r="3"/><circle cx="75" cy="107" r="3"/><circle cx="43" cy="75" r="3"/></g>
+ </g>
+</svg>
