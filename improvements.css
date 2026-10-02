@@ -1,0 +1,155 @@
+.game-frame {
+  width: min(1280px, calc(100vw - 36px), calc((100dvh - 112px) * 16 / 9));
+}
+.pilot-ability { display:block; margin-top:2px; color:#f7d889; font-size:clamp(7px,.72vw,10px); font-weight:900; letter-spacing:.08em; white-space:nowrap; }
+.pilot-stats { display:block; margin-top:4px; color:#b7dff3; font-size:clamp(6px,.65vw,9px); font-weight:800; letter-spacing:.02em; line-height:1.15; }
+.pilot-elite { box-shadow:0 0 18px #ff46aa88; }
+.pilot-elite .pilot-stats { color:#ffbadd; }
+.weapon-guide { position:absolute; z-index:8; right:5%; bottom:1%; width:min(570px,90%); padding:5px 8px; background:#09142be8; border:1px solid #60daf5; text-align:left; box-shadow:0 0 14px #28b4e966; }
+.weapon-guide summary { color:#9deaff; font-size:10px; font-weight:900; letter-spacing:.14em; cursor:pointer; }
+.weapon-guide-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:5px 12px; padding-top:8px; font-size:10px; font-weight:900; color:#fbd590; }
+.weapon-guide-grid em { color:#c9e7f4; font-style:normal; font-weight:700; }
+@media(max-width:530px){.weapon-guide{padding:2px 5px}.weapon-guide summary{font-size:7px}.weapon-guide-grid{font-size:7px;gap:2px}}
+.touch-controls .touch-turbo { position:absolute; right:17%; bottom:72px; width:52px; height:38px; border-color:#9bf7ff; background:#147ca7dd; font-size:9px; }
+@media(max-width:530px){.pilot-stats{font-size:5px;letter-spacing:-.04em;margin-top:1px}}
+.title-top-score { margin-top:.6%; color:#ffce6d; font-size:clamp(10px,1.3vw,16px); font-weight:900; letter-spacing:.2em; text-shadow:0 0 12px #ffb35a; }
+.gameover-card { width:min(540px,92%); max-height:96%; overflow:auto; padding:15px 22px; }
+.gameover-card h2 { margin:4px 0; font-size:clamp(24px,3.3vw,40px); }
+.gameover-card p { margin:3px 0 7px; }
+.gameover-card .final-score { color:#ffce6d; font-size:clamp(16px,2.2vw,27px); font-weight:900; letter-spacing:.1em; text-shadow:0 0 13px #ffb35a; }
+.gameover-card .gameover-top-score { color:#8deaff; font-size:13px; font-weight:900; letter-spacing:.15em; }
+.score-entry { margin:8px 0; padding:8px; border:1px solid #f984bf; background:#311632aa; }
+.score-entry label { display:block; margin-bottom:6px; color:#ffd58a; font-size:11px; font-weight:900; letter-spacing:.12em; }
+.score-entry div { display:flex; gap:8px; }
+.score-entry input { width:35%; min-width:75px; padding:7px; border:2px solid #78e8ff; background:#071229; color:#fff; text-align:center; font:900 19px Consolas,monospace; letter-spacing:.25em; text-transform:uppercase; }
+.score-entry button { flex:1; border:1px solid #ffb8d9; background:#ae287e; color:white; font-weight:900; letter-spacing:.1em; }
+.gameover-card .score-saved { color:#8cffbb; font-weight:900; }
+.scoreboard { margin:7px 0; padding:7px 12px; border:1px solid #3c86a0; background:#081426; text-align:left; }
+.scoreboard>strong { display:block; color:#89e7ff; font-size:11px; letter-spacing:.18em; }
+.scoreboard ol { margin:5px 0 0; padding-left:24px; color:#ffce6d; font:800 13px Consolas,monospace; }
+.scoreboard li { padding:2px 0; }
+.scoreboard li span { float:right; color:#e8f9ff; }
+.gameover-card .primary-button,.gameover-card .secondary-button { margin-top:5px; padding:8px; }
+#autoFireButton[aria-pressed="true"] { border-color:#ff7bbf; color:#fff; background:#9a1f67; box-shadow:0 0 12px #ff54b67d; }
+#voiceButton[aria-pressed="true"] { border-color:#8eeaff; color:#e8fcff; }
+.hangar-card { width:min(770px,92%); }
+.hangar-card h2 { margin:4px 0; font-size:clamp(26px,3.4vw,42px); }
+.hangar-card p { margin:3px 0 10px; }
+.hangar-card #hangarScore { color:#ffce6d; font-weight:900; letter-spacing:.14em; }
+.upgrade-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:12px 0; }
+.upgrade-button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-height:95px; padding:9px 5px; border:1px solid #58dcf8; background:linear-gradient(#173052,#0a1630); color:#ecfaff; text-align:center; }
+.upgrade-button:hover,.upgrade-button:focus-visible { background:#225076; box-shadow:0 0 14px #47d9f59c; }
+.upgrade-button:disabled { opacity:.48; cursor:not-allowed; }
+.upgrade-button strong { color:#ffce6d; font-size:clamp(10px,1.25vw,15px); letter-spacing:.07em; }
+.upgrade-button span { font-size:clamp(8px,1vw,12px); }
+.upgrade-button em { color:#8ef7a9; font-style:normal; font-weight:900; font-size:clamp(9px,1vw,12px); }
+.hangar-card #skipUpgradeButton { width:100%; min-height:34px; margin-top:3px; padding:8px; }
+.comms {
+  position: absolute;
+  z-index: 4;
+  right: 1.4%;
+  top: 17%;
+  width: min(330px, 31%);
+  background: #081327f2;
+  border: 2px solid #63d4ea;
+  box-shadow: 0 0 0 3px #071024, 0 0 24px #37cdeb8a, inset 0 0 20px #2f9dd137;
+  color: #eaf9ff;
+  pointer-events: none;
+}
+.comms.pilot-transmission {
+  border-color: #ff73bb;
+  box-shadow: 0 0 0 3px #071024, 0 0 24px #f63caa7a, inset 0 0 20px #b428893d;
+}
+.comms-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px;
+  background: #1c3752;
+  color: #9ceeff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+.pilot-transmission .comms-top { background: #4b1c4a; color: #ffc9e6; }
+.comms-led { width: 7px; height: 7px; flex: none; border-radius: 50%; background: #ff4165; box-shadow: 0 0 8px #ff4165; animation: radio-blink .7s steps(2) infinite; }
+.comms-frequency { margin-left: auto; opacity: .75; white-space: nowrap; }
+.comms-content { display: flex; align-items: center; gap: 10px; padding: 8px; min-height: 105px; }
+.comms-portrait { width: 88px; height: 88px; flex: none; object-fit: cover; border: 2px solid #53cae8; background: #02060c; image-rendering: pixelated; }
+.pilot-transmission .comms-portrait { border-color: #ff67b8; }
+.comms-copy { min-width: 0; }
+.comms-copy strong { display: block; margin-bottom: 5px; color: #ffce6d; font-size: 12px; letter-spacing: .11em; }
+.comms-copy p { margin: 0; color: #e7f5ff; font-size: 14px; line-height: 1.35; font-weight: 700; }
+.comms-timer { height: 4px; background: #264157; }
+.comms-timer span { display: block; height: 100%; width: 100%; background: #7be9ff; }
+.pilot-transmission .comms-timer span { background: #ff67b8; }
+@keyframes radio-blink { 50% { opacity: .15; } }
+
+.touch-device .touch-controls { display: flex; }
+.touch-controls { bottom: 7%; padding: 0 2.5%; align-items: end; }
+.touch-move, .touch-actions { display: flex; align-items: end; gap: 3px; }
+.touch-controls button, .touch-actions button:last-child {
+  width: clamp(36px, 5.2vw, 58px);
+  height: clamp(36px, 5.2vw, 58px);
+  margin: 0;
+  border: 2px solid #a4efff;
+  border-radius: 10px;
+  background: #07182fe0;
+  color: #fff;
+  font-size: clamp(16px, 2vw, 23px);
+  box-shadow: 0 0 16px #00bfffa3, inset 0 0 12px #00a4d94d;
+}
+.touch-actions button:last-child {
+  width: clamp(59px, 8vw, 86px);
+  height: clamp(59px, 8vw, 86px);
+  border-color: #ffc1df;
+  border-radius: 50%;
+  background: #c42484ed;
+  font-size: clamp(11px, 1.6vw, 18px);
+  box-shadow: 0 0 20px #ff40b5c9;
+}
+.touch-controls button.active { background: #32b6ed; }
+.touch-actions button:last-child.active { background: #ff66ba; }
+
+@media(max-width: 760px) {
+  .pilot-ability { display:none; }
+  .hangar-card { padding:8px 10px; }
+  .hangar-card .eyebrow { font-size:8px; }
+  .hangar-card h2 { font-size:20px; }
+  .hangar-card p { font-size:10px; margin:2px 0 5px; }
+  .upgrade-grid { grid-template-columns:repeat(2,1fr); gap:4px; margin:5px 0; }
+  .upgrade-button { min-height:48px; padding:4px 2px; gap:1px; }
+  .hangar-card #skipUpgradeButton { min-height:22px; font-size:9px; padding:3px; }
+  .hangar-card .modal-hint { font-size:7px; margin:4px 0 0; }
+  .game-frame { width: min(calc(100vw - 12px), calc((100dvh - 76px) * 16 / 9)); }
+  .comms { width: min(220px, 49%); top: 17%; right: 1.4%; }
+  .comms-top { padding: 3px 5px; font-size: 7px; }
+  .comms-content { min-height: 55px; gap: 5px; padding: 4px; }
+  .comms-portrait { width: 47px; height: 47px; }
+  .comms-copy strong { font-size: 8px; margin-bottom: 2px; }
+  .comms-copy p { font-size: 9px; line-height: 1.2; }
+  .touch-controls { bottom: 6%; }
+  .touch-controls button { width: clamp(30px, 6vw, 44px); height: clamp(30px, 6vw, 44px); }
+  .touch-actions button:last-child { width: clamp(49px, 8vw, 62px); height: clamp(49px, 8vw, 62px); }
+}
+@media(max-width: 530px) {
+  .topbar { flex-wrap:wrap; justify-content:center; row-gap:2px; padding:3px 0; }
+  .brand { font-size:10px; }
+  .top-actions { gap:3px; }
+  .topbar .quiet-button { padding:5px 4px; font-size:8px; }
+  .title-hint { display: block; font-size: 6px; line-height: 1.2; margin-top: .6%; }
+  .touch-controls button { width: 38px; height: 38px; font-size: 15px; }
+  .touch-actions button:last-child { width: 54px; height: 54px; font-size: 10px; }
+  .comms { width: 49%; top: 17%; right: 1.4%; }
+  .comms-frequency { display: none; }
+  .comms-portrait { width: 40px; height: 40px; }
+  .comms-copy p { font-size: 8px; }
+  .title-top-score { font-size:8px; }
+  .gameover-card { padding:8px 12px; }
+  .gameover-card .final-score { font-size:14px; }
+  .score-entry { margin:4px 0; padding:4px; }
+  .score-entry label { font-size:8px; }
+  .score-entry input { padding:3px; font-size:13px; }
+  .scoreboard { padding:4px 8px; }
+  .scoreboard ol { font-size:10px; margin-top:2px; }
+}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b1c">
+  <title>Starguard — Browser Edition</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="improvements.css">
+  <script src="dialogue.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span><strong>STARGUARD</strong></span><span class="edition">BROWSER EDITION</span></div>
+      <div class="top-actions">
+        <button id="soundButton" class="quiet-button" type="button" aria-label="Toggle sound">♪ SOUND ON</button>
+        <button id="voiceButton" class="quiet-button" type="button" aria-pressed="true" aria-label="Toggle spoken radio dialogue">◖ VOICE ON</button>
+        <button id="autoFireButton" class="quiet-button" type="button" aria-pressed="false" aria-label="Toggle automatic firing">◎ AUTO FIRE OFF</button>
+        <button id="pauseButton" class="quiet-button" type="button" aria-label="Pause game">Ⅱ PAUSE</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="gameFrame" class="game-frame" tabindex="0" aria-label="Starguard game">
+        <canvas id="gameCanvas" aria-label="Scrolling rescue game"></canvas>
+
+        <section id="titleScreen" class="screen title-screen" aria-label="Choose a pilot">
+          <div class="title-sky"></div>
+          <div class="title-content">
+            <div class="eyebrow">THE SETTLERS ARE COUNTING ON YOU</div>
+            <h1><span>STARGUARD</span></h1>
+            <p class="subtitle">An arcade rescue mission</p>
+            <div id="titleTopScore" class="title-top-score">TOP SCORE 000000</div>
+            <div class="title-rule"></div>
+            <h2>Choose your pilot</h2>
+            <div id="pilotGrid" class="pilot-grid" role="group" aria-label="Pilot selection">
+              <button class="pilot-card selected" type="button" data-pilot="0" aria-pressed="true"><img src="assets/pilot-cj.jpg" alt=""><span class="pilot-name">C.J.</span><span class="pilot-ship">BLUE FALCON</span><span class="pilot-ability">PULSE BURST</span><span class="pilot-stats">SPD 3 · SHD 2 · RES 3</span></button>
+              <button class="pilot-card" type="button" data-pilot="1" aria-pressed="false"><img src="assets/pilot-michael.jpg" alt=""><span class="pilot-name">Michael</span><span class="pilot-ship">SOLAR ORANGE</span><span class="pilot-ability">OVERDRIVE</span><span class="pilot-stats">SPD 4 · SHD 2 · RES 3</span></button>
+              <button class="pilot-card pilot-elite" type="button" data-pilot="2" aria-pressed="false"><img src="assets/pilot-nicole.jpg" alt=""><span class="pilot-name">Princess Nicole ✦</span><span class="pilot-ship">NEON PINK · ELITE</span><span class="pilot-ability">SHIELD TRAIL</span><span class="pilot-stats">SPD 5 · SHD 4 · RES 5 · 4 SEATS</span></button>
+              <button class="pilot-card" type="button" data-pilot="3" aria-pressed="false"><img src="assets/pilot-zachary.jpg" alt=""><span class="pilot-name">Zachary</span><span class="pilot-ship">NOVA GREEN</span><span class="pilot-ability">TRACTOR FIELD</span><span class="pilot-stats">SPD 4 · SHD 2 · RES 4</span></button>
+            </div>
+            <button id="launchButton" class="primary-button" type="button">LAUNCH MISSION <span>↗</span></button>
+            <p class="title-hint">1–4 / ← → CHOOSE PILOT · ENTER / SPACE LAUNCH · ARROWS + SPACE FLY & FIRE · F TOGGLE AUTO FIRE</p>
+            <details class="weapon-guide"><summary>COMPARE WEAPON STATS</summary><div class="weapon-guide-grid"><span>BLASTER <em>∞ · STANDARD</em></span><span>FAN CANNON <em>24 · 5-WAY</em></span><span>SEEKER PAIR <em>12 · HOMING</em></span><span>PIERCER <em>18 · PIERCE + DAMAGE</em></span><span>TWIN LASERS <em>34 · FAST</em></span><span>PLASMA BOMB <em>12 · SPLASH</em></span><span>NOVA BURST <em>10 · 8-WAY</em></span></div></details>
+          </div>
+        </section>
+
+        <section id="pauseScreen" class="screen modal-screen hidden" aria-label="Pause menu" aria-hidden="true">
+          <div class="modal-card"><div class="eyebrow">MISSION CONTROL</div><h2>PAUSED</h2><p>Take a breath. The settlers will wait.</p><button id="resumeButton" class="primary-button" type="button">RESUME MISSION</button><button id="titleButton" class="secondary-button" type="button">RETURN TO TITLE</button><p class="modal-hint">ESC TO RESUME · CLOSE THE BROWSER TAB TO LEAVE</p></div>
+        </section>
+
+        <section id="hangarScreen" class="screen modal-screen hidden" aria-label="Hangar upgrades" aria-hidden="true">
+          <div class="modal-card hangar-card"><div class="eyebrow">HAVEN ONE HANGAR</div><h2>WAVE CLEAR</h2><p id="hangarSummary">Choose one upgrade for the next sortie.</p><p id="hangarScore">SCORE 000000</p>
+            <div class="upgrade-grid">
+              <button class="upgrade-button" data-upgrade="engine" type="button"><strong>THRUSTERS</strong><span>Faster flight</span><em></em></button>
+              <button class="upgrade-button" data-upgrade="turbo" type="button"><strong>TURBO DRIVE</strong><span>Higher top speed</span><em></em></button>
+              <button class="upgrade-button" data-upgrade="shield" type="button"><strong>SHIELD CELL</strong><span>Absorb a hit</span><em></em></button>
+              <button class="upgrade-button" data-upgrade="rescue" type="button"><strong>RESCUE BEAM</strong><span>Wider pickup range</span><em></em></button>
+            </div>
+            <button id="skipUpgradeButton" class="secondary-button" type="button">SKIP &amp; LAUNCH NEXT WAVE</button><p class="modal-hint">CLICK AN UPGRADE OR PRESS 1–4 · ENTER TO SKIP</p>
+          </div>
+        </section>
+
+        <section id="gameOverScreen" class="screen modal-screen hidden" aria-label="Game over" aria-hidden="true">
+          <div class="modal-card gameover-card"><div class="eyebrow">HAVEN ONE TRANSMISSION</div><h2>MISSION OVER</h2><p id="gameOverReason">ALL SHIPS LOST</p><p id="finalScore" class="final-score">FINAL SCORE 000000</p><p id="gameOverTopScore" class="gameover-top-score">TOP SCORE 000000</p>
+            <form id="scoreEntry" class="score-entry hidden"><label for="initialsInput">NEW TOP SCORE · ENTER YOUR INITIALS</label><div><input id="initialsInput" type="text" maxlength="3" pattern="[A-Za-z]{1,3}" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Your three initials" required><button id="saveScoreButton" type="submit">SAVE SCORE</button></div></form>
+            <p id="scoreSavedNote" class="score-saved hidden">SCORE RECORDED</p><div class="scoreboard"><strong>TOP PILOTS</strong><ol id="leaderboard"></ol></div>
+            <button id="restartButton" class="primary-button" type="button">TRY AGAIN</button><button id="changePilotButton" class="secondary-button" type="button">CHANGE PILOT</button><p class="modal-hint">ENTER / SPACE TO RESTART · TAB TO CHANGE PILOT</p></div>
+        </section>
+
+        <aside id="comms" class="comms hidden" aria-live="polite" aria-atomic="true" aria-label="Mission radio transmission">
+          <div class="comms-top"><span class="comms-led"></span><span id="commsChannel">INCOMING TRANSMISSION</span><span class="comms-frequency">CH 08.6</span></div>
+          <div class="comms-content">
+            <img id="commsPortrait" class="comms-portrait" src="assets/commander-vega.svg" alt="">
+            <div class="comms-copy"><strong id="commsName">COMMANDER VEGA</strong><p id="commsText"></p></div>
+          </div>
+          <div class="comms-timer"><span id="commsTimer"></span></div>
+        </aside>
+
+        <div id="touchControls" class="touch-controls" aria-label="Touch controls">
+          <div class="touch-move"><button data-control="left" aria-label="Fly left">◀</button><button data-control="up" aria-label="Fly up">▲</button><button data-control="down" aria-label="Fly down">▼</button><button data-control="right" aria-label="Fly right">▶</button></div>
+          <button class="touch-turbo" data-control="turbo" aria-label="Hold to boost">BOOST</button><div class="touch-actions"><button data-control="turn" aria-label="Turn around">↶</button><button data-control="ability" aria-label="Pilot ability">★</button><button data-control="weapon" aria-label="Switch weapon">GUN</button><button data-control="fire" aria-label="Fire">FIRE</button></div>
+        </div>
+      </div>
+
+      <div class="below-game"><div class="mission-note"><span class="live-dot"></span><strong>MISSION:</strong> Rescue settlers, collect green 1UPs, and grab weapon pods from defeated raiders. Sectors advance after a short patrol.</div><div class="control-note"><kbd>W A S D</kbd> / <kbd>↑ ← ↓ →</kbd> FLY <span>·</span> <kbd>SHIFT</kbd> BOOST <span>·</span> <kbd>SPACE</kbd> FIRE <span>·</span> <kbd>X</kbd> SWITCH GUN <span>·</span> <kbd>F</kbd> AUTO FIRE <span>·</span> <kbd>R</kbd> ABILITY <span>·</span> <kbd>ESC</kbd> PAUSE</div></div>
+    </main>
+    <footer>Original art and music for Starguard. Play with a keyboard, gamepad, or on-screen controls on a phone or tablet.</footer>
+  </div>
+</body>
+</html>
